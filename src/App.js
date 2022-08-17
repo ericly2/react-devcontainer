@@ -19,7 +19,7 @@ function App() {
             <button onClick={() => fetchData()}>
               Hit endpoint
             </button>
-            <p data-testid='id'>Id: {data.id}</p>
+            <p data-testid='id'>Ip: {data.id}</p>
             <p data-testid='title'>Title: {data.title}</p>
             <p data-testid='userId'>UserId: {data.userId}</p>
           </div> : null}
