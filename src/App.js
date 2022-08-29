@@ -6,6 +6,7 @@ import './App.css';
 function App() {
   const [data, setData] = useState({});
   const [protectedData, setProtectedData] = useState();
+  // const [testBedData, setTestBedData] = useState();
   const [, setCookie] = useCookies(["awth-token"]);
 
   const email = 'eric.ly@arcticwolf.com'
@@ -26,6 +27,21 @@ function App() {
   console.log(sJWT);
 
   setCookie('awth-token', sJWT);
+
+  // const fetchTestBedData = async () => {
+  //   await fetch('https://consoleservice.consoleapp.protontest.us001-test.rtkwlf.io/locker/v1/task-freshness', {
+  //     method: 'GET',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       'Authorization': `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjE4MDg4ODIsImV4cCI6MTY2MTgzNzY4Miwic3ViIjoiZXJpYy5seUBhcmN0aWN3b2xmLmNvbSIsImlzcyI6Imh0dHBzOi8vYXV0aC5hcmN0aWN3b2xmLmNvbS8iLCJhdWQiOlsiaHR0cHM6Ly9hcGkuYXJjdGljd29sZi5jb20vIl19.dU-PJN58GgF1gAgCMYPPb6Ds68CZTLOL3Ueb2RYW75Q`
+  //     }
+  //   })
+  //     .then(response => response.json()
+  //     .then(json => {
+  //       setTestBedData(json);
+  //       console.log(json);
+  //     }));
+  // }
 
   const fetchProtectedData = async () => {
     await fetch('/protected')
@@ -58,6 +74,10 @@ function App() {
               Hit protected endpoint
             </button>
             {protectedData ? <p data-testid='protected-data'>{protectedData}</p> : null}
+            {/* <button data-testid='testbed-button' onClick={() => fetchTestBedData()}>
+              Hit TestBed
+            </button>
+            {testBedData ? <p data-testid='testbed-data'>{testBedData}</p> : null} */}
           </div> : null}
       </div>
     </div>
